@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <div class="cuerpoadvertencia">
+        <style>
+            .cuerpoadvertencia {
+                min-height: 100vh;
+                background: url(/src/main/resources/static/img/fondo1.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: small;
+            }
+
+            #boton {
+                padding: 1em;
+                width: 40%;
+                border: none;
+                border-radius: 5px;
+                background-color: #fcda59;
+                color: black;
+                font-weight: bold;
+            }
+
+            #boton:hover {
+                background-color: #fdd306;
+            }
+
+            .titulos {
+                background-color: white;
+                width: 50%;
+                text-align: center;
+            }
+        </style>
+        <!-- no borrar formulario -->
+        <form class="myForm" th:action="@{/ingresante/realizar-examen}" method="post" id="myForm"
+            th:object="${ingresante}">
+
+            <input type="number" name="id" id="id" th:field="*{id}" required hidden readonly />
+
+        </form>
+        <div class="titulos">
+            <h1>A continuación realizara el examen</h1>
+            <h2>Advertencia solo cuenta con un intento y con un tiempo limite de </h2>
+            <h2>45 minutos</h2>
+            <h3>Si desea realizarlo ahora haga click en si en caso de querer realizarlo mas tarde haga click en cancelar
+                todos sus datos ya fueron almacenados solo tendra que realizar el examen</h3>
+            <button id="boton"><label for="continuar">Continuar</label></button>
+            <button id="boton"><a th:href="@{/index}">Cancelar</a></button>
+        </div>
+    </div>
+
+</body>
+
+</html>

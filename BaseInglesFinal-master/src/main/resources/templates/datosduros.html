@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <div class="cuerpoformulario1">
+    <style>
+      .cuerpoformulario1 {
+        min-height: 100vh;
+        background: url(/src/main/resources/static/img/fondo2.png);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-family: 'Montserrat', sans-serif;
+
+      }
+
+      label {
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 3em;
+        background-color: white;
+        width: 60%;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+      }
+
+      #bt-continuar {
+        padding: 1em;
+        width: 20%;
+        border: none;
+        border-radius: 5px;
+        background-color: #fcda59;
+        color: black;
+        font-weight: bold;
+        margin: 20px;
+      }
+
+      #bt-continuar:hover {
+        background-color: #fdd306;
+      }
+
+      form input {
+        padding: 0.5em;
+        border: 1px solid #c5c3c2;
+        width: 35%;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin: 10px;
+      }
+
+      #tDoc {
+        padding: 0.5em;
+        border: 1px solid #c5c3c2;
+        width: 37%;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+      }
+
+      #genero {
+        padding: 0.5em;
+        border: 1px solid #c5c3c2;
+        width: 37%;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+      }
+
+      #pais {
+        padding: 0.5em;
+        border: 1px solid #c5c3c2;
+        width: 37%;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+      }
+
+      #provincia {
+        padding: 0.5em;
+        border: 1px solid #c5c3c2;
+        width: 37%;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+      }
+
+      #domicilio {
+        padding: 0.5em;
+        border: 1px solid #c5c3c2;
+        width: 37%;
+        border-radius: 5px;
+        color: black;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px;
+      }
+    </style>
+    <form th:action="@{/ingresante/duros}" method="post" id="myForm" th:object="${ingresante}">
+      <input type="number" name="id" id="id" th:field="*{id}" required hidden />
+
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre" th:field="*{nombre}" readonly required />
+
+      <label for="apellido">Apellido</label>
+      <input type="text" name="apellido" id="apellido" th:field="*{apellido}" readonly required />
+
+      <label for="tDoc">Tipo de documento</label>
+      <select name="tDoc" th:field="*{tDoc}" id="tDoc" required>
+        <option selected="selected" value="">
+        </option>
+        <option value="DNI">DNI</option>
+        <option value="Pasaporte">Pasaporte</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <label for="numDoc">Documento Numero</label>
+      <input type="text" name="numDoc" id="numDoc" th:field="*{numDoc}" readonly required />
+
+      <label for="mail">Mail</label>
+      <input type="email" name="mail" id="mail" th:field="*{mail}" readonly />
+
+      <label for="celu">Ingrese Celular:</label>
+      <input type="number" name="celu" id="celu" th:field="*{celu}" required />
+
+      <label for="fNacimiento">Fecha de nacimiento</label>
+      <input type="date" name="fNacimiento" id="fNacimiento" th:field="*{fNacimiento}" required />
+
+      <label for="genero">Genero</label>
+
+      <select name="genero" th:field="*{genero}" id="genero" required>
+        <option selected="selected" value="">
+        </option>
+        <option value="No binario">No binario</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+      </select>
+
+      <label for="pais">Pais</label>
+
+      <select name="pais" th:field="*{pais}" id="pais" required>
+        <option selected="selected" value=""></option>
+        <option th:each="paises : ${listaPaises}" th:value="${paises}" th:text="${paises}"></option>
+      </select>
+
+      <label for="nacionalidad">Nacionalidad</label>
+      <input type="text" name="nacionalidad" id="nacionalidad" th:field="*{nacionalidad}" required />
+
+      <label for="provincia">Provincia</label>
+      <select name="provincia" th:field="*{provincia}" id="provincia" required>
+        <option selected="selected" value=""></option>
+        <option th:each="pr : ${listaProvincias}" th:value="${pr}" th:text="${pr}"></option>
+      </select>
+
+      <label for="barrio" id="etiquetaBarrio">Barrio</label>
+      <select name="localidadResi" th:field="*{localidadResi}" id="barrio">
+        <option selected="selected" value=""></option>
+        <option th:each="ba : ${listaBarriosCaba}" th:value="${ba}" th:text="${ba}"></option>
+      </select>
+
+      <label for="localidad" id="etiquetaLocalidad">Localidad</label>
+      <select name="localidadResi" th:field="*{localidadResi}" id="localidad">
+        <option selected="selected" value="">Seleccione una localidad</option>
+        <option th:each="loca : ${listaDeLocalidadesGcba}" th:value="${loca}" th:text="${loca}"></option>
+      </select>
+
+      <label for="domicilio">Domicilio</label>
+      <input id="domicilio" type="text" name="domicilio" id="domicilio" th:field="*{domicilio}" required />
+
+      <input id="bt-continuar" type="submit" value="Continuar" />
+    </form>
+    <script>
+      var etiquetaBarrio = document.getElementById("etiquetaBarrio");
+
+      var etiquetaLocalidad = document.getElementById("etiquetaLocalidad");
+
+      var barrio = document.getElementById("barrio");
+
+      var localidad = document.getElementById("localidad");
+
+      var provincia = document.getElementById("provincia");
+
+
+      etiquetaBarrio.setAttribute("Style", "display:none");
+
+      etiquetaLocalidad.setAttribute("Style", "display:none");
+
+      localidad.setAttribute("Style", "display:none");
+
+      barrio.setAttribute("Style", "display:none");
+
+      provincia.addEventListener("change", (event) => {
+        let pro = provincia.value;
+
+        if (pro === "Ciudad Autonoma de Buenos Aires") {
+          console.log(barrio);
+          barrio.setAttribute("required", true);
+          etiquetaBarrio.setAttribute("Style", "display:block");
+          barrio.setAttribute("Style", "display:block");
+          etiquetaLocalidad.setAttribute("Style", "display:none");
+          localidad.setAttribute("Style", "display:none");
+          localidad.removeAttribute("required");
+
+        } else if (pro === "Buenos Aires") {
+          console.log(localidad);
+          localidad.setAttribute("required", true);
+          etiquetaLocalidad.setAttribute("Style", "display:block");
+          localidad.setAttribute("Style", "display:block");
+          barrio.setAttribute("Style", "display:none");
+          etiquetaBarrio.setAttribute("Style", "display:none");
+          barrio.removeAttribute("required");
+        } else {
+          localidad.setAttribute("Style", "display:none");
+          barrio.setAttribute("Style", "display:none");
+          etiquetaBarrio.setAttribute("Style", "display:none");
+          etiquetaLocalidad.setAttribute("Style", "display:none");
+          barrio.removeAttribute("required");
+          localidad.removeAttribute("required");
+        }
+
+      });
+    </script>
+
+  </div>
+</body>
+
+</html>

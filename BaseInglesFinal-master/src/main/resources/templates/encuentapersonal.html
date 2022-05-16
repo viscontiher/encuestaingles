@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <div class="cuerpoencuesta">
+        <style>
+            .cuerpoencuesta {
+                min-height: 100vh;
+                background: url(/src/main/resources/static/img/fondo2.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 3em;
+                background-color: white;
+                width: 60%;
+                color: black;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+            }
+
+            label {
+                text-align: center;
+            }
+
+            form input {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 35%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                margin: 10px;
+            }
+
+            #e_nivelMaximo {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #e_egresadoDe {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #year {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_situacionActual {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_relacion {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_actividadPrincipal {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_roles {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_duracion {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_antiguedad {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_aniosDelSector {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_estudiosSector {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_aportesJ {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px
+            }
+
+            #t_plataPara {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_horas {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #t_franja {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            .bt-continuar {
+                padding: 1em;
+                width: 20%;
+                border: none;
+                border-radius: 5px;
+                background-color: #fcda59;
+                color: black;
+                font-weight: bold;
+                margin: 20px;
+            }
+
+            .bt-continuar:hover {
+                background-color: #fdd306;
+            }
+        </style>
+
+        <form th:action="@{/ingresante/encuenta}" method="post" id="myForm" th:object="${ingresante}">
+            <!-- Preguntas Educacion -->
+            <input type="number" name="id" id="id" th:field="*{id}" required hidden readonly />
+
+            <label for="e_nivelMaximo">Maximo Nivel Educativo Alcanzado</label>
+            <select name="e_nivelMaximo" th:field="*{e_nivelMaximo}" id="e_nivelMaximo" required>
+                <option selected="selected" value=""></option>
+                <option th:each="nivel : ${listaNivelAlcanzado}" th:value="${nivel}" th:text="${nivel}"></option>
+            </select>
+
+            <label for="e_egresadoDe">Sos egresado/a de... </label>
+            <select name="e_egresadoDe" th:field="*{e_egresadoDe}" id="e_egresadoDe" required>
+                <option selected="selected" value=""></option>
+                <option th:each="led : ${listaEgresadoDe}" th:value="${led}" th:text="${led}"></option>
+            </select>
+
+            <label for="e_establecimiento">Establecimiento educativo de egreso</label>
+            <!-- <select name="e_establecimiento" th:field="*{e_establecimiento}" id="e_establecimiento" >
+            <option selected="selected" value="">Seleccione</option>
+            <option th:each="le : ${listaEstablecimientos}" th:value="${le}" th:text="${le}"></option>
+        </select> -->
+
+            <label for="year">Año de Egreso</label>
+            <select name="year" id="year" th:field="*{e_anioEgreso}" required>
+                <option selected="selected" value="">
+                </option>
+            </select>
+
+            <!-- Preguntas Tabajo -->
+
+
+            <label for="t_situacionActual">¿Cuál es tu situación laboral actual?</label>
+            <select name="t_situacionActual" id="t_situacionActual" th:field="*{t_situacionActual}" required>
+                <option selected="selected" value="">
+                </option>
+                <option value="Trabajo">Trabajo</option>
+                <option value="No trabajo y busco trabajo">No trabajo y busco trabajo</option>
+                <option value="No trabajo y no estoy pensando por ahora en trabajar">No trabajo y no estoy pensando por
+                    ahora en trabajar</option>
+                <option value="Jubilada/o y/o pensionada/o">Jubilada/o y/o pensionada/o</option>
+            </select>
+
+            <label for="t_relacion">Vos trabajás…</label>
+            <select name="t_relacion" id="t_relacion" th:field="*{t_relacion}" required>
+                <option selected="selected" value="">
+                </option>
+                <option value="Relación de dependencia">Relación de dependencia</option>
+                <option value="Monotributista">Monotributista</option>
+                <option value="Autónomo">Autónomo</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label for="t_actividadPrincipal">Por favor indicá cuál es la rama principal de actividad de la organización
+                en donde trabajás.</label>
+            <select name="t_actividadPrincipal" th:field="*{t_actividadPrincipal}" id="t_actividadPrincipal" required>
+                <option selected="selected" value=""></option>
+                <option th:each="la : ${listaActividades}" th:value="${la}" th:text="${la}"></option>
+            </select>
+
+            <label for="t_roles">En tu trabajo ¿ocupás alguno de los siguientes roles relacionados con el perfil
+                IT?</label>
+            <select name="t_roles" th:field="*{t_roles}" id="t_roles" required>
+                <option selected="selected" value=""></option>
+                <option th:each="rolIt : ${listaRolIt}" th:value="${rolIt}" th:text="${rolIt}"></option>
+            </select>
+
+            <label for="t_duracion">Ese trabajo es...</label>
+            <select name="t_duracion" th:field="*{t_duracion}" id="t_duracion" required>
+                <option selected="selected" value=""></option>
+                <option value="Permanente (la relación laboral no tiene fecha preestablecida de finalización)">
+                    Permanente (la relación laboral no tiene fecha preestablecida de finalización)</option>
+                <option
+                    value="Temporal (contratados,plantas transitorias en general donde queda establecidad duración de la relación laboral)">
+                    Temporal (contratados,plantas transitorias en general donde queda establecidad duración de la
+                    relación laboral)</option>
+            </select>
+
+            <label for="t_antiguedad">¿Qué antigüedad tenés en el trabajo actual? Si tenés más de uno elegí el que
+                considerás tu principal fuente de ingresos</label>
+            <input type="number" name="t_antiguedad" id="t_antiguedad" th:field="*{t_antiguedad}" min="0" max="60"
+                required />
+
+
+            <label for="t_aniosDelSector">¿Cuántos años hace que trabajás en el sector?</label>
+            <input type="number" name="t_aniosDelSector" id="t_aniosDelSector" th:field="*{t_aniosDelSector}" min="0"
+                max="60" required />
+
+            <label for="t_estudiosSector">Cuando iniciaste a trabajar en ese sector: ¿tenías estudios en el mismo
+                sector?</label>
+            <select name="t_estudiosSector" th:field="*{t_estudiosSector}" id="t_estudiosSector" required>
+                <option selected="selected" value=""></option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+            </select>
+
+            <label for="t_aportesJ">Por ese trabajo ¿te realizan descuentos jubilatorios?</label>
+            <select name="t_aportesJ" th:field="*{t_aportesJ}" id="t_aportesJ" required>
+                <option selected="selected" value=""></option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+                <option value="No Se">No sè</option>
+                <option value="Soy Monotributista">Soy Monotributista</option>
+            </select>
+
+            <label for="t_plataPara">Los ingresos obtenidos en este trabajo son...</label>
+            <select name="t_plataPara" th:field="*{t_plataPara}" id="t_plataPara" required>
+                <option selected="selected" value=""></option>
+                <option value="De uso exclusivo para tus gastos personales">De uso exclusivo para tus gastos personales
+                </option>
+                <option value="El principal sostén económico del hogar">El principal sostén económico del hogar</option>
+                <option value="Aplicados en parte al sostén del hogar">Aplicados en parte al sostén del hogar</option>
+                <option value="No recibo remuneración">No recibo remuneración</option>
+            </select>
+
+            <label for="t_horas">¿Cuántas horas semanales trabajás habitualmente?</label>
+            <select name="t_horas" th:field="*{t_horas}" id="t_horas" required>
+                <option selected="selected" value=""></option>
+                <option value="Hasta 10 hs">Hasta 10 hs</option>
+                <option value="Entre 11 y 20 hs">Entre 11 y 20 hs</option>
+                <option value="Entre 21 y 35 hs">Entre 21 y 35 hs</option>
+                <option value="Más de 35 hs">más de 35 hs</option>
+            </select>
+
+            <label for="t_franja">¿En qué franja horaria trabajás?</label>
+            <select name="t_franja" th:field="*{t_franja}" id="t_franja" required>
+                <option selected="selected" value=""></option>
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noche">Noche</option>
+            </select>
+
+            <input class="bt-continuar" type="submit" value="Continuar" />
+        </form>
+        <script>
+
+            let year = document.getElementById("year");
+            let hoy = new Date();
+            document.write(hoy.getFullYear())
+            for (var i = 2018; i <= hoy.getFullYear(); i++) {
+                let option = document.createElement("option");
+                option.setAttribute("value", i);
+                let optionTexto = document.createTextNode(i);
+                option.appendChild(optionTexto);
+                year.appendChild(option);
+
+            }
+        </script>
+    </div>
+    </div>
+</body>
+
+</html>

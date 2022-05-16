@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <div class="cuerponivel">
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 3em;
+                background-color: white;
+                width: 60%;
+                color: black;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+            }
+
+            .cuerponivel {
+                min-height: 100vh;
+                background: url(/src/main/resources/static/img/fondo1.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: small;
+            }
+
+            #i_estudiaste {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #i_donde {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #label_i_donde_otro {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #i_uso_trabajo {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #i_uso_t_situacion {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+
+            #i_uso_t_situacion_otro {
+                padding: 0.5em;
+                border: 1px solid #c5c3c2;
+                width: 37%;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+            }
+        </style>
+        <form th:action="@{/ingresante/nivel}" method="post" id="myForm" th:object="${ingresante}">
+            <!-- Preguntas Educacion -->
+            <input type="number" name="id" id="id" th:field="*{id}" required hidden readonly />
+
+            <label for="i_estudiaste">¿Estudiaste inglés en alguna oportunidad?</label>
+            <select name="i_estudiaste" th:field="*{i_estudiaste}" id="i_estudiaste" required>
+                <option selected="selected" value="">Seleccione</option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+            </select>
+
+            <label for="i_donde">Especificá dónde</label>
+            <select name="i_donde" th:field="*{i_donde}" id="i_donde" required>
+                <option selected="selected" value="">Seleccione</option>
+                <option value="Escuela primaria">Escuela primaria</option>
+                <option value="Escuela secundaria">Escuela secundaria</option>
+                <option value="Instituto de idiomas">Instituto de idiomas</option>
+                <option value="Profesor/a particular">Profesor/a particular</option>
+                <option value="Curso en el extranjero">Curso en el extranjero</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <label for="i_donde_otro" id="label_i_donde_otro">Otro (especifique)</label>
+            <input type=" text" name="i_donde_otro" id="i_donde_otro" />
+            <div>
+                <label id="choice" for="">Nivel de inglés (tu valoración)</label>
+                <div>
+                    <div><label for="i_nivel_oral">Oralidad</label></div>
+                    <div><Span>NULO</Span><input type="radio" name="i_nivel_oral" id="i_nivel_oral"
+                            th:field="*{i_nivel_oral}" value="nulo" required></div>
+                    <div><Span>BÁSICO</Span><input type="radio" name="i_nivel_oral" id="i_nivel_oral"
+                            th:field="*{i_nivel_oral}" value="basico" required></div>
+                    <div><Span>INTERMEDIO</Span><input type="radio" name="i_nivel_oral" id="i_nivel_oral"
+                            th:field="*{i_nivel_oral}" value="intermedio" required></div>
+                    <div><Span>AVANZADO</Span><input type="radio" name="i_nivel_oral" id="i_nivel_oral"
+                            th:field="*{i_nivel_oral}" value="avanzado" required></div>
+                </div>
+                <div>
+                    <div><label for="i_nivel_escrito">Escritura</label></div>
+                    <div><Span>NULO</Span><input type="radio" name="i_nivel_escrito" id="i_nivel_escrito"
+                            th:field="*{i_nivel_escrito}" value="nulo" required></div>
+                    <div><Span>BÁSICO</Span><input type="radio" name="i_nivel_escrito" id="i_nivel_escrito"
+                            th:field="*{i_nivel_escrito}" value="basico" required></div>
+                    <div><Span>INTERMEDIO</Span><input type="radio" name="i_nivel_escrito" id="i_nivel_escrito"
+                            th:field="*{i_nivel_escrito}" value="intermedio" required></div>
+                    <div><Span>AVANZADO</Span><input type="radio" name="i_nivel_escrito" id="i_nivel_escrito"
+                            th:field="*{i_nivel_escrito}" value="avanzado" required></div>
+                </div>
+                <div>
+                    <div><label for="i_nivel_lectura">Lectura</label></div>
+                    <div><Span>NULO</Span><input type="radio" name="i_nivel_lectura" id="i_nivel_lectura"
+                            th:field="*{i_nivel_lectura}" value="nulo" required></div>
+                    <div><Span>BÁSICO</Span><input type="radio" name="i_nivel_lectura" id="i_nivel_lectura"
+                            th:field="*{i_nivel_lectura}" value="basico" required></div>
+                    <div><Span>INTERMEDIO</Span><input type="radio" name="i_nivel_lectura" id="i_nivel_lectura"
+                            th:field="*{i_nivel_lectura}" value="intermedio" required></div>
+                    <div><Span>AVANZADO</Span><input type="radio" name="i_nivel_lectura" id="i_nivel_lectura"
+                            th:field="*{i_nivel_lectura}" value="avanzado" required></div>
+                </div>
+
+            </div>
+            <label for="i_uso_trabajo">¿Has tenido que utilizar el idioma ingles en alguna situación laboral? </label>
+            <select name="i_uso_trabajo" th:field="*{i_uso_trabajo}" id="i_uso_trabajo" required>
+                <option selected="selected" value="">Seleccione</option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+            </select>
+
+            <label for="i_uso_t_situacion">Indicá en que tipo de situación..</label>
+            <select name="i_uso_t_situacion" th:field="*{i_uso_t_situacion}" id="i_uso_t_situacion" required>
+                <option selected="selected" value="">Seleccione</option>
+                <option value="Entrevista">Entrevista</option>
+                <option value="Presentación">Presentación</option>
+                <option value="Compra/venta de productos">Compra/venta de productos</option>
+                <option value="Llamado telefónico/videoconferencia">Llamado telefónico/videoconferencia</option>
+                <option value="Redaccion de mail/carta/chat">Redaccion de mail/carta/chat</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <label for="i_uso_t_situacion_otro" id="label_i_uso_t_situacion_otro">Otra (especifique)</label>
+            <input type="text" name="i_uso_t_situacion_otro" id="i_uso_t_situacion_otro" />
+
+            <div>
+                <label for="">Queremos conocer tu perspectiva sobre los siguientes puntos. Indicanos tu opinión</label>
+
+                <div>
+                    <label for="i_conseguirOportunidades">Para conseguir mayores y mejores oportunidades laborales en el
+                        sector informático es un
+                        requisito indispensable contar con conocimiento del idioma inglés.</label>
+                    <select name="i_conseguirOportunidades" th:field="*{i_conseguirOportunidades}"
+                        id="i_conseguirOportunidades" required>
+                        <option selected="selected" value="">Seleccione</option>
+                        <option value="No estoy de acuerdo">No estoy de acuerdo</option>
+                        <option value="No sé o no estoy seguro">No sé o no estoy seguro</option>
+                        <option value="Completamente de acuerdo">Completamente de acuerdo</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="i_programacion">Para tener mayor capacidad de comprensión y desarrollo de código y
+                        lenguajes
+                        de
+                        programación, es necesario tener conocimiento del idioma inglés.</label>
+                    <select name="i_programacion" th:field="*{i_programacion}" id="i_programacion" required>
+                        <option selected="selected" value="">Seleccione</option>
+                        <option value="No estoy de acuerdo">No estoy de acuerdo</option>
+                        <option value="No sé o no estoy seguro">No sé o no estoy seguro</option>
+                        <option value="Completamente de acuerdo">Completamente de acuerdo</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="i_cercerProfecionalmente">Para crecer profesionalmente y/o tener mayores oportunidades
+                        laborales es necesario
+                        manejar fluidamente el idioma inglés.</label>
+                    <select name="i_cercerProfecionalmente" th:field="*{i_cercerProfecionalmente}"
+                        id="i_cercerProfecionalmente" required>
+                        <option selected="selected" value="">Seleccione</option>
+                        <option value="No estoy de acuerdo">No estoy de acuerdo</option>
+                        <option value="No sé o no estoy seguro">No sé o no estoy seguro</option>
+                        <option value="Completamente de acuerdo">Completamente de acuerdo</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="i_valorTiempo">Aprender inglés es una inversión de tiempo y esfuerzo a largo plazo muy
+                        enriquecedora.
+                    </label>
+                    <select name="i_valorTiempo" th:field="*{i_valorTiempo}" id="i_valorTiempo" required>
+                        <option selected="selected" value="">Seleccione</option>
+                        <option value="No estoy de acuerdo">No estoy de acuerdo</option>
+                        <option value="No sé o no estoy seguro">No sé o no estoy seguro</option>
+                        <option value="Completamente de acuerdo">Completamente de acuerdo</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+
+            <input type="submit" value="continuar" />
+        </form>
+        <script>
+            var i_uso_t_situacion = document.getElementById("i_uso_t_situacion");
+            var label_i_uso_t_situacion_otro = document.getElementById("label_i_uso_t_situacion_otro");
+            var i_uso_t_situacion_otro = document.getElementById("i_uso_t_situacion_otro");
+
+            var i_donde = document.getElementById("i_donde");
+            var label_i_donde_otro = document.getElementById("label_i_donde_otro");
+            var i_donde_otro = document.getElementById("i_donde_otro");
+
+
+            i_uso_t_situacion_otro.setAttribute("Style", "display:none");
+
+            label_i_uso_t_situacion_otro.setAttribute("Style", "display:none");
+
+
+            label_i_donde_otro.setAttribute("Style", "display:none");
+
+            i_donde_otro.setAttribute("Style", "display:none");
+
+
+
+            i_donde.addEventListener("change", (event) => {
+                let donde = i_donde.value;
+
+                if (donde === "Otro") {
+
+                    i_donde_otro.setAttribute("required", true);
+                    label_i_donde_otro.setAttribute("Style", "display:block");
+                    i_donde_otro.setAttribute("Style", "display:block");
+
+
+                } else {
+
+                    i_donde_otro.removeAttribute("required");
+                    label_i_donde_otro.setAttribute("Style", "display:none");
+
+                    i_donde_otro.setAttribute("Style", "display:none");
+                }
+
+
+            });
+
+
+
+            i_uso_t_situacion.addEventListener("change", (event) => {
+                let situacion = i_uso_t_situacion.value;
+
+                if (situacion === "Otro") {
+
+                    i_uso_t_situacion_otro.setAttribute("required", true);
+                    i_uso_t_situacion_otro.setAttribute("Style", "display:block");
+                    label_i_uso_t_situacion_otro.setAttribute("Style", "display:block");
+
+
+                } else {
+
+                    i_uso_t_situacion_otro.removeAttribute("required");
+                    i_uso_t_situacion_otro.setAttribute("Style", "display:none");
+
+                    label_i_uso_t_situacion_otro.setAttribute("Style", "display:none");
+                }
+
+
+            });
+
+
+        </script>
+
+</body>
+
+</html>

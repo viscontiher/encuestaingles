@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<h1 class="titulo1">Test Inglés para la Empleabilidad</h1>
+<p class="titulo2">La siguiente prueba es sólo a los efectos de conocer tu nivel real de inglés.</p>
+<p class="titulo2">El resultado no afecta a la
+    designación de vacantes.</p>
+<p class="titulo2">Es muy importante que puedas aquí reflejar tus verdaderas hablidades en el idioma para</p>
+<p class="titulo2"> conocerte más y así poder acompañarte en tu propio proceso de aprendizaje.</p>
+
+<body>
+    <div class="cronometro">
+        <p class="titulo2"> Tiempo restante:</p>
+        <span class="days"></span>
+        <span class="hours"></span>
+        <span class="minutes"></span>
+        <span class="seconds"></span>
+    </div>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <div class="cuerpoexm">
+        <style>
+            .cuerpoexm {
+                min-height: 100vh;
+                background: url(/src/main/resources/static/img/fondo1.png);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: small;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 3em;
+                background-color: white;
+                width: 60%;
+                color: black;
+                justify-content: left;
+                align-items: left;
+                align-content: left;
+            }
+
+            .pregunta {
+                margin: 10px;
+            }
+
+            form p {
+                font-weight: bold;
+            }
+
+            #boton {
+                display: flex;
+                padding: 1em;
+                width: 20%;
+                border: none;
+                border-radius: 5px;
+                background-color: #fcda59;
+                color: black;
+                font-weight: bold;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                top: 50%;
+                left: 40%;
+
+
+            }
+
+            #boton:hover {
+                background-color: #fdd306;
+            }
+
+            .cronometro {
+                padding: 1em;
+                width: 8%;
+                border: black;
+                border: 2px solid black;
+                border-radius: 10px;
+                background-color: #fcda59;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                margin: 10px;
+                float: right;
+            }
+
+            .titulo1 {
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;
+            }
+
+            .titulo2 {
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;
+            }
+        </style>
+
+        <form th:action="@{/examen/save}" method="post" id="myForm" th:object="${examen}">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" th:field="*{nombre}" readonly>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" id="apellido" th:field="*{apellido}" readonly>
+            <label for="numDoc">Documento</label>
+            <input type="text" name="numDoc" id="numDoc" th:field="*{numDoc}" readonly>
+            <label for="id_ingresante">id Ingresante</label>
+            <input type="number" name="id_ingresante" id="id_ingresante" th:field="*{id_ingresante}" readonly>
+            <label for="id">id examen</label>
+            <input type="number" name="id" id="id" th:field="*{id}" readonly>
+            <div class="pregunta">
+                <b>1)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p1" id="p1" th:value="a" th:field="*{p1}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p1" id="p1" th:value="b" th:field="*{p1}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p1" id="p1" th:value="c" th:field="*{p1}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p1" id="p1" th:value="d" th:field="*{p1}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>2)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p2" id="p2" th:value="a" th:field="*{p2}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p2" id="p2" th:value="b" th:field="*{p2}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p2" id="p2" th:value="c" th:field="*{p2}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p2" id="p2" th:value="d" th:field="*{p2}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>3)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p3" id="p3" th:value="a" th:field="*{p3}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p3" id="p3" th:value="b" th:field="*{p3}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p3" id="p3" th:value="c" th:field="*{p3}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p3" id="p3" th:value="d" th:field="*{p3}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>4)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p4" id="p4" th:value="a" th:field="*{p4}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p4" id="p4" th:value="b" th:field="*{p4}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p4" id="p1" th:value="c" th:field="*{p4}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p4" id="p4" th:value="d" th:field="*{p4}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>5)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p5" id="p5" th:value="a" th:field="*{p5}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p5" id="p5" th:value="b" th:field="*{p5}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p5" id="p5" th:value="c" th:field="*{p5}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p5" id="p5" th:value="d" th:field="*{p5}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>6)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p6" id="p6" th:value="a" th:field="*{p6}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p6" id="p6" th:value="b" th:field="*{p6}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p6" id="p6" th:value="c" th:field="*{p6}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p6" id="p6" th:value="d" th:field="*{p6}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>7)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p7" id="p7" th:value="a" th:field="*{p7}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p7" id="p7" th:value="b" th:field="*{p7}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p7" id="p7" th:value="c" th:field="*{p7}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p7" id="p7" th:value="d" th:field="*{p7}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>8)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p8" id="p8" th:value="a" th:field="*{p8}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p8" id="p8" th:value="b" th:field="*{p8}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p8" id="p8" th:value="c" th:field="*{p8}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p8" id="p8" th:value="d" th:field="*{p8}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>9)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p9" id="p9" th:value="a" th:field="*{p9}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p9" id="p9" th:value="b" th:field="*{p9}"><span>b-You are welcome</span><br>
+                <input type="radio" name="p9" id="p9" th:value="c" th:field="*{p9}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p9" id="p9" th:value="d" th:field="*{p9}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>10)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p10" id="p10" th:value="a" th:field="*{p10}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p10" id="p10" th:value="b" th:field="*{p10}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p10" id="p10" th:value="c" th:field="*{p10}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p10" id="p10" th:value="d" th:field="*{p10}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>11)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p11" id="p11" th:value="a" th:field="*{p11}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p11" id="p11" th:value="b" th:field="*{p11}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p11" id="p11" th:value="c" th:field="*{p11}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p11" id="p11" th:value="d" th:field="*{p11}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>12)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p12" id="p12" th:value="a" th:field="*{p12}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p12" id="p12" th:value="b" th:field="*{p12}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p12" id="p12" th:value="c" th:field="*{p12}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p12" id="p12" th:value="d" th:field="*{p12}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>13)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p13" id="p13" th:value="a" th:field="*{p13}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p13" id="p13" th:value="b" th:field="*{p13}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p13" id="p13" th:value="c" th:field="*{p13}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p13" id="p13" th:value="d" th:field="*{p13}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>14)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p14" id="p14" th:value="a" th:field="*{p14}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p14" id="p14" th:value="b" th:field="*{p14}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p14" id="p14" th:value="c" th:field="*{p14}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p14" id="p14" th:value="d" th:field="*{p14}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>15)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p15" id="p15" th:value="a" th:field="*{p15}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p15" id="p15" th:value="b" th:field="*{p15}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p15" id="p15" th:value="c" th:field="*{p15}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p15" id="p15" th:value="d" th:field="*{p15}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>16)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p16" id="p16" th:value="a" th:field="*{p16}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p16" id="p16" th:value="b" th:field="*{p16}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p16" id="p16" th:value="c" th:field="*{p16}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p16" id="p16" th:value="d" th:field="*{p16}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>17)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p17" id="p17" th:value="a" th:field="*{p17}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p17" id="p17" th:value="b" th:field="*{p17}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p17" id="p17" th:value="c" th:field="*{p17}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p17" id="p17" th:value="d" th:field="*{p17}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>18)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p18" id="p18" th:value="a" th:field="*{p18}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p18" id="p18" th:value="b" th:field="*{p18}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p18" id="p18" th:value="c" th:field="*{p18}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p18" id="p18" th:value="d" th:field="*{p18}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>19)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p19" id="p19" th:value="a" th:field="*{p19}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p19" id="p19" th:value="b" th:field="*{p19}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p19" id="p19" th:value="c" th:field="*{p19}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p19" id="p19" th:value="d" th:field="*{p19}"><span>d- Good bye.</span><br>
+            </div>
+            <div class="pregunta">
+                <b>20)</b>
+                <p> A: Hello <br>B: Hi, How are you? <br> A:___________ </p>
+                <input type="radio" name="p20" id="p20" th:value="a" th:field="*{p20}"><span>a- I'm nine. </span><br>
+                <input type="radio" name="p20" id="p20" th:value="b" th:field="*{p20}"><span>b-You are
+                    welcome</span><br>
+                <input type="radio" name="p20" id="p20" th:value="c" th:field="*{p20}"><span>c- Fine thank you, and
+                    you?</span><br>
+                <input type="radio" name="p20" id="p20" th:value="d" th:field="*{p20}"><span>d- Good bye.</span><br>
+            </div>
+    </div>
+    <input id="boton" type="submit" value="finalizar">
+    </form>
+    <script>
+        let minadd = 45;
+        let countDownDate = new Date().getTime() + minadd * 60000;
+
+        console.log(countDownDate);
+
+
+        setInterval(() => {
+            // Get Date Now
+            let dateNow = new Date().getTime();
+
+            // Find The Date Difference Between Now And Countdown Date
+            let dateDiff = countDownDate - dateNow;
+
+            // Get Time Units
+
+            let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+
+            document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
+            document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
+            document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
+            document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+
+            if (dateDiff < 0) {
+                document.getElementById("myForm").submit();
+            }
+        }, 1000);
+
+    </script>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cuerpodni">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+        <style>
+            .cuerpodni {
+                min-height: 100vh;
+                background: url(/src/main/resources/static/img/fondo1.png);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .cuerpodni h1,
+            .cuerpodni h4 {
+                font-weight: 300;
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+            }
+
+            .cuerpodni form {
+                display: flex;
+                flex-direction: column;
+                background-color: #ffffff;
+                gap: 10px;
+                width: 300px;
+                height: 300px;
+                justify-content: center;
+                align-items: center;
+                align-items: content;
+            }
+
+            #docenviar {
+                padding: 1em;
+                width: 40%;
+                border: none;
+                border-radius: 5px;
+                background-color: #fcda59;
+                color: black;
+                font-weight: bold;
+            }
+
+            #docenviar:hover {
+                background-color: #fdd306;
+            }
+
+            #doc {
+                padding: 1em;
+                width: 40%;
+                border: 1px solid #c5c3c2;
+                box-shadow: 0 0 4px #e5e5e5;
+                border-radius: 5px;
+                color: black;
+                font-weight: bold;
+            }
+        </style>
+        <p th:text="${no}"></p>
+        <p>advertencia el dni ingresado no es valido</p>
+        <h1>CURSO DE INGLÉS PARA LA EMPLEABILIDAD</h1>
+
+
+        <h4>Ingresá tu número de documento y a continuación hacé click en el botón CONTINUAR</h4>
+        <form th:action="@{/ingresante/traer}" method="Post">
+
+
+            <label for="doc">Ingrese DNI</label>
+            <input type="text" name="doc" id="doc">
+            <input id="docenviar" type="submit" value="Continuar">
+        </form>
+</body>
+
+</html>

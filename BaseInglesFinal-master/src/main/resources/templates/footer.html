@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+    </style>
+    
+    <footer class="footer-footer">
+        <style>
+             .footer-footer{
+                background-color: #333;
+                
+                display: flex;
+                width: 100vw;              
+                justify-content: center;
+            }
+            .contenedor-footer{
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+            }
+            .superior-footer, .inferior-footer{
+                display: flex;
+               
+                width: 100%;
+                
+                
+                padding: 1.5em;
+                color: #f5f5f5;
+            }
+            .superior-footer{
+                justify-content: space-evenly;
+                border-bottom: 1px solid #f5f5f5;
+            }
+            .ba-logo-footer{
+                width: 120px;
+                height: max-content;
+            }
+            .fot-list-tel{
+                list-style: none;
+                font-weight: bold;
+            }
+            .fot-list-tel span{
+                color: #f5f5f5 !important;
+            }
+            .fot-list-tel  a{
+                text-decoration: none !important;
+                border-bottom: 1px solid #f5f5f5;
+            }
+            .fot-sup-tel p{
+                font-weight: bold;
+            }
+            .fot-sup-tel{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .fot-sup-tel ul{
+                display: flex;
+                flex-direction: column;
+                gap:20px ;
+            }
+            .fot-sup-logo{
+                width: 20%;
+            }
+            .fot-sup-tel{
+                width: 25%;
+            }
+            .fot-sup-num{
+                display: flex;
+                flex-direction: column;
+               width: 50%;
+               justify-content: space-between;
+            }
+            .fot-lista-num{
+                list-style: none !important;
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+                                           
+            }
+            .fot-lista-redes{
+                list-style: none !important;
+                display: flex;
+                width: 60%;
+                justify-content: space-between;
+            }
+            .fot-lista-num a{
+                text-decoration: none;
+            }
+            .fot-lista-num span{
+                border-bottom: 1px solid #f5f5f5;
+                color: #f5f5f5 !important;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            .fot-lista-num li{
+                display: flex ;
+                flex-direction: column;
+                width: calc(100%/7);
+               text-align: left;
+               gap: 5px;
+               
+            }
+            
+            .fot-lista-num li p{
+                font-size: smaller !important;
+                color:#a6a4a4 ;
+            }
+            .fot-lista-redes li a{
+                text-decoration: none;
+            }
+            .fot-lista-redes li a img{
+                width: 25px;
+            }
+            .inferior-footer{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .fot-inf-izq{
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .fot-inf-izq img{
+                width: 45%;
+                height: fit-content;
+            }
+            .fot-inf-izq p{
+                color: #a6a4a4;
+                font-size: smaller;
+            }
+            .fot-inf-der{
+                width: 55%;
+            }
+            .fot-inf-der ul{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                list-style: none;
+            }
+            .fot-inf-der li a{
+                text-decoration: none;
+            }
+            .fot-inf-der li a span{
+                color: #f5f5f5;
+                font-size: smaller;
+                border-bottom:1px solid #f5f5f5;
+            }
+            
+            @media(max-width:770px){
+                .footer-footer{
+                    display: flex;
+                    flex-direction: column !important;
+                }
+                .superior-footer, .inferior-footer{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100% ;
+                }
+                .fot-lista-num{
+                    display: flex;
+                    flex-direction: column;
+                }
+                .fot-lista-redes{
+                  
+                    display: flex;
+                    width: 100%;
+                }
+                .inferior-footer{
+                    display: flex;
+                    flex-direction: column;
+                }
+                .fot-inf-izq{
+                    width: 100%;
+                }
+                .fot-inf-der{
+                    width: 100%;
+                }
+            }
+        </style>
+        <div class="contenedor-footer">
+         <div class="superior-footer">
+              
+        <div class="fot-sup-logo">
+            <img class="ba-logo-footer" src="/static/img/logos/ba_vamosba_blanco.png" alt="">
+        </div>
+        <div class="fot-sup-tel">
+            <ul class="fot-list-tel">
+                <li>Teléfonos útiles</li>
+                <li><a href="http://www.buenosaires.gob.ar/laciudad/telefonosutiles" target="_black"><span>Ver todos los teléfonos</span></a></li>
+            </ul>
+            <p>Redes de la Ciudad</p>
+        </div>
+        <div class="fot-sup-num">
+          <ul class="fot-lista-num">
+              <li><a href="tel:102" target="black"><span>102</span></a><p>Niñez y Adolescencia</p></li>
+              <li><a href="tel:103" target="black"><span>103</span></a><p>Emergencias</p></li>
+              <li><a href="tel:107" target="black"><span>107</span></a><p>SAME</p></li>
+              <li><a href="tel:911" target="black"><span>911</span></a><p>Policía</p></li>
+              <li><a href="tel:147" target="black"><span>147</span></a><p>Atención ciudadana</p></li>
+              <li><a href="tel:144" target="black"><span>144</span></a><p>Violencia de género</p></li>
+          </ul>
+          <ul class="fot-lista-redes">
+            <li><a href="http://facebook.com/GCBA/" target="_blank"><img src="/static/img/social/facebook-f-500.png" alt="icono facebook gcba"></a></li>
+            <li><a href="http://twitter.com/gcba" target="_blank"><img src="/static/img/social/twitter-500.png" alt="icono twittwe gcba"></a></li>
+            <li><a href="http://www.instagram.com/buenosaires" target="_blank"><img src="/static/img/social/instagram-384.png" alt="icono instagram gcba"></a></li>
+            <li><a href="http://www.youtube.com/user/GCBA" target="_blank"><img src="/static/img/social/youtube-500.png" alt="icono youtube gcba"></a></li>
+          </ul>
+        </div>
+            </div>
+         <div class="inferior-footer">
+             <div class="fot-inf-izq">
+                 <a href="http://buenosaires.gob.ar" target="_blank"><img src="/static/img/logos/ciudad-ba.png" alt="ciudad de buenos aires"></a>
+            <p>Los contenidos de buenosaires.gob.ar están licenciados bajo Creative Commons Reconocimiento 2.5 Argentina License.</p>
+                </div>
+             <div class="fot-inf-der">
+                 <ul>
+                     <li><a href="https://boletinoficial.buenosaires.gob.ar/" target="_blank"><span>Boletin Oficial</span></a></li>
+                     <li><a href="https://www.buenosaires.gob.ar/jefaturadegabinete/innovacion/terminos-y-condiciones" target="_blank"><span>Términos y condiciones</span></a></li>
+                     <li><a href="https://www.buenosaires.gob.ar/privacidad" target="_blank"><span>Política de privacidad</span></a></li>
+                     <li><a href="https://www.buenosaires.gob.ar/oficiosjudiciales" target="_blank"><span>Oficios judiciales</span></a></li>
+                 </ul>
+             </div>
+
+         </div>
+        </div>
+    
+    </footer>
+</body>
+</html>
